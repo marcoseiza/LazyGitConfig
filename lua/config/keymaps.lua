@@ -10,6 +10,8 @@ end, { expr = true, desc = "Comment line", silent = true })
 
 vim.keymap.set("x", "<leader>/", [[:<c-u>lua MiniComment.operator('visual')<cr>]], { desc = "Comment selection" })
 
+vim.keymap.set("n", "<leader>Lc", [[:e $MYVIMRC <CR>]], { desc = "LazyVim config" })
+
 vim.keymap.set({ "n", "t" }, "<leader>ft", function()
   require("nvterm.terminal").toggle_all_terms()
 end, { desc = "Toggle all terminals" })
@@ -28,12 +30,8 @@ end, { desc = "Open horizontal terminal" })
 
 vim.keymap.set({ "n", "t" }, "<A-v>", function()
   require("nvterm.terminal").toggle("vertical")
-end, { desc = "Open horizontal terminal" })
-
-vim.keymap.set({ "n", "t" }, "<leader>h", function()
-  require("nvterm.terminal").toggle("horizontal")
 end, { desc = "Open vertical terminal" })
 
-vim.keymap.set({ "n", "t" }, "<leader>v", function()
-  require("nvterm.terminal").toggle("vertical")
-end, { desc = "Open vertical terminal" })
+vim.keymap.set("n", "<leader>h", "<cmd>sp<CR>", { desc = "Open horizontal split" })
+
+vim.keymap.set("n", "<leader>v", "<cmd>vsp<CR>", { desc = "Open vertical terminal" })
